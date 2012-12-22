@@ -1,0 +1,3 @@
+== Chat ( example of PrivatePub ) 
+
+this is a example app of PrivatePub 
