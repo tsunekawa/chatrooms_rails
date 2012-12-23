@@ -2,3 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$chat_w: 400px;
+$chat_h: 400px;
+
+$mes_color: black;
+
+.message-list
+{
+  width: $chat_w;
+  height: $chat_h;
+  overflow: scroll;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: gray 1px solid;
+}
+
+.message-list li
+{
+  display:block;
+  border-bottom: $mes_color 1px solid;
+  padding:0.25em;
+}

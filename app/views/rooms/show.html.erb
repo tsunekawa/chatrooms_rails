@@ -1,0 +1,17 @@
+<h1>Room :<%= @room.name %></h1>
+<p id="notice"><%= notice %></p>
+
+<ul id="chat" class="message-list">
+  <%= render @room.messages %>  
+</ul>
+
+<%= form_for(Message.new, remote: true) do |f| %>
+ <%= f.hidden_field :room_id, :value=>@room.id %>
+ <%= f.text_field :content %>
+ <%= f.submit "send" %>
+<% end %>
+
+<%= subscribe_to "/room/#{@room.id}/messages/new" %>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

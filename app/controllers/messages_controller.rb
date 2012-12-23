@@ -2,12 +2,13 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @messages }
+    @messages = if params[:room_id].blank? then
+      Message.all
+    else
+      Message.where(:room_id=>params[:room_id]).all
     end
+
+    @messages
   end
 
   # GET /messages/1
