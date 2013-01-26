@@ -1,0 +1,10 @@
+defaults: &defaults
+  :mailer:
+    :host: "YOUR MAIL SERVER HOST"
+    :sender: "YOUR EMAIL ADDRESS"
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  <<: *defaults
