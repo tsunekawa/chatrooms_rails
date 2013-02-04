@@ -1,4 +1,9 @@
 Chat::Application.routes.draw do
+  get "user/edit"
+
+  root :to => "rooms#index"
+  devise_for :users
+
   resources :messages
   resources :rooms
 
