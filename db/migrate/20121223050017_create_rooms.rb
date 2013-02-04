@@ -6,6 +6,6 @@ class CreateRooms < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_column :messages, :room_id, :foreign_key
+    add_column :messages, :room_id, :integer
   end
 end

@@ -3,5 +3,6 @@ class Message < ActiveRecord::Base
   validates_presence_of :content
   validates_presence_of :room_id
 
+  belongs_to :user
   belongs_to :room
 end

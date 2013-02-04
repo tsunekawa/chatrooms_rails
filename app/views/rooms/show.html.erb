@@ -5,10 +5,15 @@
   <%= render @room.messages %>  
 </ul>
 
+<% if user_signed_in? then %>
 <%= form_for(Message.new, remote: true) do |f| %>
  <%= f.hidden_field :room_id, :value=>@room.id %>
+ <span><%= current_user.name %></span>
  <%= f.text_field :content %>
  <%= f.submit "send" %>
+<% end %>
+<% else %>
+<p>Please <%= link_to 'sign-in', :controller=>'devise/sessions', :action=>:new %> if you want to join this chat room</p>
 <% end %>
 
 <%= subscribe_to "/room/#{@room.id}/messages/new" %>
