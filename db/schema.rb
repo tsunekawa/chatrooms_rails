@@ -11,10 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204085651) do
+ActiveRecord::Schema.define(:version => 20130204094137) do
 
-# Could not dump table "messages" because of following StandardError
-#   Unknown type 'foreign_key' for column 'room_id'
+  create_table "messages", :force => true do |t|
+    t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "room_id"
+    t.integer  "user_id",    :null => false
+  end
 
   create_table "rooms", :force => true do |t|
     t.string   "name"
