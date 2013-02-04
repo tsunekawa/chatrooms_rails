@@ -1,5 +1,5 @@
 Chat::Application.routes.draw do
-  root :to => "messages#index"
+  root :to => "rooms#index"
   devise_for :users
 
   resources :messages
