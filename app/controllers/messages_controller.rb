@@ -20,7 +20,8 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(params[:message])
+    @message      = Message.new(params[:message])
+    @message.user = current_user
     @status  = if @message.save then
       @message  
     else

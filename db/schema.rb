@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204081149) do
+ActiveRecord::Schema.define(:version => 20130204085651) do
 
 # Could not dump table "messages" because of following StandardError
 #   Unknown type 'foreign_key' for column 'room_id'
