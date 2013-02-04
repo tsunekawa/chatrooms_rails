@@ -20,6 +20,8 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    render :status => :forbidden, :text => "Please sign in." unless user_signed_in?
+
     @message      = Message.new(params[:message])
     @message.user = current_user
     @status  = if @message.save then
@@ -32,7 +34,13 @@ class MessagesController < ApplicationController
   # DELETE /messages/1
   # DELETE /messages/1.json
   def destroy
+    render :status => :forbidden, :text => "Please sign in." unless user_signed_in?
+
     @message = Message.find(params[:id])
+    if @message.user != current_user then
+      render :status => :forbidden, :text => "You are not author of this message." unless user_signed_in?
+    end
+
     @message.destroy
 
     respond_to do |format|
